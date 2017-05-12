@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+import twitter
+# Setting up Twitter API
+api = twitter.Api(
+    consumer_key='Ok9JYmnotr2bx82ep4CJt9YMa',
+    consumer_secret='0ckY7yv7pzoNZ5JqgIGNxCY4qrAFTjqsGA6MhPkTh4j9txdrpW',
+    access_token_key='862964658667372546-CuAuW35GEifxgOubQ69hQYji0cFjzfg',
+    access_token_secret='4vcqsOdyv1tJpttZNfaio6e9mxEXgIyHJtWsgZfE4Rex6'
+)  # !/usr/bin/env python
+
+search = api.GetSearch(term='sad', lang='en', result_type='recent', count=100, max_id='')
+
+for t in search:
+    print (t.user.screen_name + ' (' + t.created_at + ')')
+    # Add the .encode to force encoding
+    print (t.text.encode('utf-8'))
+    print ('')
+
